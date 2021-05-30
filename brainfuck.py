@@ -35,7 +35,6 @@ def exe(bf_code):
     mem_size = 30000
     mem = [0 for i in range(mem_size)]
     mem_head = 0
-
     for i in bf_code:
         print(i, end='')
     print()
@@ -105,11 +104,10 @@ if __name__ == "__main__":
     with open(path, encoding="utf-8") as f:
         print("decode")
         kouka_code = f.read()
-        #kouka_code = kouka_code.replace(' ', '')
-        #kouka_code = kouka_code.replace('\n', '')
-        #bf_code = decode_to_bf(kouka_code)
-
-        bf_code = kouka_code
+        kouka_code = kouka_code.replace(' ', '')
+        kouka_code = kouka_code.replace('\n', '')
+        bf_code = decode_to_bf(kouka_code)
+        #bf_code = kouka_code
         bf_code = bf_code.replace(' ', '')
         bf_code = bf_code.replace('\n', '')
         exe(bf_code)
