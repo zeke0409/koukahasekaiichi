@@ -8,6 +8,7 @@
 #define LOOP_END ']'
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 int main(){
     uint64_t *tape;
     uint8_t head=0;
@@ -17,7 +18,13 @@ int main(){
     tape = calloc((1 << 8), sizeof(uint64_t));
     code=calloc((1<<8),sizeof(char));
     scanf("%s",code);
-    
+    //printf("%s\n",code);
+    int n=0;
+    while (*code != '\0') {
+        printf("%c\n", *code);
+        code++;
+    }
+    printf("finished\n");
     /*while(1){
         if(code_head<0){
             perror("not valid code_head");
