@@ -15,12 +15,12 @@ command_dict={
 
 def decode_to_bf(cmd):
     head=0
-    bf_code=[];
+    bf_code="";
     while(head<len(cmd)):
         s_flag=1
         for kouka_cmd,bf_cmd in command_dict.items():
             if(cmd[head:head+len(kouka_cmd)]==kouka_cmd):
-                bf_code.append(bf_cmd)
+                bf_code+=bf_cmd
                 s_flag=0
                 head = head+len(kouka_cmd)
                 break;
@@ -87,7 +87,10 @@ if __name__=="__main__":
     path=args[1]
     with open(path,encoding="utf-8") as f:
         kouka_code=f.read()
-        #bf_code=decode_to_bf(kouka_code)
-        bf_code=kouka_code
-        bf_code=bf_code.strip()
+        kouka_code = kouka_code.replace(' ', '')
+        kouka_code = kouka_code.replace('\n', '')
+        bf_code=decode_to_bf(kouka_code)
+        #bf_code=kouka_code
+        bf_code = bf_code.replace(' ', '')
+        bf_code=bf_code.replace('\n', '')
         exe(bf_code)
